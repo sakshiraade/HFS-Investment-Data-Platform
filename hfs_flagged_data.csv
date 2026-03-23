@@ -1,0 +1,7 @@
+fund_id,fund_name,strategy,aum_millions,monthly_return_pct,ytd_return_pct,net_exposure_pct,report_date,data_source,last_validated
+HFS003,,Long/Short Equity,275.4,2.8,6.3,28.9,2026-03-01,Internal System,2026-03-22
+HFS006,Meridian Macro Fund,Global Macro,-200.0,1.3,5.6,42.1,2026-03-01,FactSet,2026-03-22
+HFS009,Nexus Event Driven,Merger Arbitrage,178.5,73.5,81.2,22.4,2026-03-01,Internal System,2026-03-22
+HFS012,Vantage Multi-Strategy,Multi-Strategy,389.6,1.7,5.1,44.7,2025-12-12,Prime Broker,2026-03-22
+HFS015,Shoreline Credit Partners,Credit Long/Short,334.2,2.1,6.7,162.4,2026-03-01,FactSet,2026-03-22
+HFS018,Sigma Quant Partners,Quant Equity,,3.1,8.9,55.2,2026-03-01,Prime Broker,2026-03-22

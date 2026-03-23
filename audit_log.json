@@ -1,0 +1,61 @@
+{
+  "run_timestamp": "2026-03-23 12:37:43",
+  "source_file": "hfs_fund_data.csv",
+  "total_records": 20,
+  "clean_records": 14,
+  "flagged_records": 6,
+  "quality_score_pct": 70.0,
+  "checks_applied": [
+    "Check 1: Missing fund name",
+    "Check 2: Invalid AUM (non-positive or missing)",
+    "Check 3: Return anomaly (threshold: \u00b150%)",
+    "Check 4: Stale data (threshold: >60 days)",
+    "Check 5: Exposure breach (threshold: \u00b1150%)"
+  ],
+  "flagged_records_detail": [
+    {
+      "fund_id": "HFS003",
+      "fund_name": NaN,
+      "strategy": "Long/Short Equity",
+      "issues": "Missing fund name"
+    },
+    {
+      "fund_id": "HFS006",
+      "fund_name": "Meridian Macro Fund",
+      "strategy": "Global Macro",
+      "issues": "Invalid AUM"
+    },
+    {
+      "fund_id": "HFS009",
+      "fund_name": "Nexus Event Driven",
+      "strategy": "Merger Arbitrage",
+      "issues": "Return anomaly: 73.5%"
+    },
+    {
+      "fund_id": "HFS012",
+      "fund_name": "Vantage Multi-Strategy",
+      "strategy": "Multi-Strategy",
+      "issues": "Stale data: 101 days old"
+    },
+    {
+      "fund_id": "HFS015",
+      "fund_name": "Shoreline Credit Partners",
+      "strategy": "Credit Long/Short",
+      "issues": "Exposure breach: 162.4%"
+    },
+    {
+      "fund_id": "HFS018",
+      "fund_name": "Sigma Quant Partners",
+      "strategy": "Quant Equity",
+      "issues": "Invalid AUM"
+    }
+  ],
+  "output_files": [
+    "hfs_clean_data.csv",
+    "hfs_flagged_data.csv",
+    "hfs_validated_data.csv",
+    "hfs_strategy_summary.csv"
+  ],
+  "pipeline_version": "1.0",
+  "analyst": "Sakshi Aade"
+}

@@ -1,0 +1,15 @@
+fund_id,fund_name,strategy,aum_millions,monthly_return_pct,ytd_return_pct,net_exposure_pct,report_date,data_source,last_validated
+HFS001,Apex Growth Fund,Long/Short Equity,542.3,3.2,8.7,45.2,2026-03-01,Bloomberg Feed,2026-03-22
+HFS002,Summit Long Short,Long/Short Equity,318.7,-1.4,2.1,-32.8,2026-03-01,FactSet,2026-03-22
+HFS004,Ridgeline Capital,Long/Short Equity,487.1,0.9,4.2,51.3,2026-03-01,Fund Administrator,2026-03-22
+HFS005,Atlas Global Macro,Global Macro,823.6,-2.1,1.8,-67.4,2026-03-01,Bloomberg Feed,2026-03-22
+HFS007,Horizon Macro Partners,Global Macro,634.2,4.1,11.2,-55.8,2026-03-01,Prime Broker,2026-03-22
+HFS008,Bridgepoint Merger Arb,Merger Arbitrage,291.8,1.1,3.4,18.6,2026-03-01,Fund Administrator,2026-03-22
+HFS010,Pinnacle Arb Fund,Merger Arbitrage,445.9,0.8,2.9,15.3,2026-03-01,Bloomberg Feed,2026-03-22
+HFS011,Keystone Multi-Strat,Multi-Strategy,712.4,2.4,7.8,-38.9,2026-03-01,FactSet,2026-03-22
+HFS013,Cascade Multi-Strat,Multi-Strategy,521.3,-0.6,1.2,-29.4,2026-03-01,Bloomberg Feed,2026-03-22
+HFS014,Ironclad Credit Fund,Credit Long/Short,267.8,3.8,9.4,62.1,2026-03-01,Fund Administrator,2026-03-22
+HFS016,Westfield Credit L/S,Credit Long/Short,198.4,-1.9,0.3,-48.6,2026-03-01,Internal System,2026-03-22
+HFS017,Quantum Systematic,Quant Equity,876.5,5.2,14.3,71.8,2026-03-01,Bloomberg Feed,2026-03-22
+HFS019,Vector Algorithmic Fund,Quant Equity,432.7,-2.8,-4.1,-63.5,2026-03-01,FactSet,2026-03-22
+HFS020,Helix Quant Equity,Quant Equity,654.1,1.6,5.8,38.9,2026-03-01,Fund Administrator,2026-03-22

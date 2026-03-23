@@ -1,0 +1,84 @@
+import sqlite3
+
+# ── Load CSVs into an in-memory SQLite database ──────────────────────
+conn = sqlite3.connect(':memory:')
+df_clean.to_sql('hfs_clean_data',     conn, index=False, if_exists='replace')
+df_flagged.to_sql('hfs_flagged_data', conn, index=False, if_exists='replace')
+df.to_sql('hfs_validated_data',       conn, index=False, if_exists='replace')
+print("✓ Tables loaded into SQLite: hfs_clean_data, hfs_flagged_data, hfs_validated_data")
+
+# ── Helper to run and display any query cleanly ──────────────────────
+def run_query(title, sql):
+    print(f"\n{'='*55}")
+    print(f"  {title}")
+    print(f"{'='*55}")
+    result = pd.read_sql_query(sql, conn)
+    print(result.to_string(index=False))
+    return result
+
+# ── Query 1: AUM and returns by strategy ────────────────────────────
+run_query("Q1: Total AUM & Avg Return by Strategy", """
+    SELECT 
+        strategy,
+        COUNT(*)                          AS fund_count,
+        ROUND(SUM(aum_millions), 1)       AS total_aum_millions,
+        ROUND(AVG(monthly_return_pct), 2) AS avg_monthly_return_pct
+    FROM hfs_clean_data
+    GROUP BY strategy
+    ORDER BY total_aum_millions DESC
+""")
+
+# ── Query 2: Top 5 performing funds this month ───────────────────────
+run_query("Q2: Top 5 Performing Funds — Current Month", """
+    SELECT 
+        fund_name,
+        strategy,
+        aum_millions,
+        monthly_return_pct,
+        ytd_return_pct
+    FROM hfs_clean_data
+    WHERE monthly_return_pct > 0
+    ORDER BY monthly_return_pct DESC
+    LIMIT 5
+""")
+
+# ── Query 3: Exposure monitoring ─────────────────────────────────────
+run_query("Q3: Exposure Monitoring — Risk Flags", """
+    SELECT
+        fund_name,
+        strategy,
+        net_exposure_pct,
+        CASE 
+            WHEN ABS(net_exposure_pct) > 100 THEN 'HIGH RISK'
+            WHEN ABS(net_exposure_pct) > 75  THEN 'ELEVATED'
+            ELSE 'NORMAL'
+        END AS exposure_flag
+    FROM hfs_clean_data
+    ORDER BY ABS(net_exposure_pct) DESC
+""")
+
+# ── Query 4: Data timeliness check ───────────────────────────────────
+run_query("Q4: Data Timeliness — Days Since Last Report", """
+    SELECT
+        fund_name,
+        strategy,
+        report_date,
+        CAST(JULIANDAY('now') - JULIANDAY(report_date) AS INTEGER) AS days_since_report,
+        CASE
+            WHEN JULIANDAY('now') - JULIANDAY(report_date) > 60 THEN 'STALE'
+            WHEN JULIANDAY('now') - JULIANDAY(report_date) > 30 THEN 'AGING'
+            ELSE 'CURRENT'
+        END AS timeliness_status
+    FROM hfs_clean_data
+    ORDER BY days_since_report DESC
+""")
+
+# ── Query 5: Quality summary across full dataset ──────────────────────
+run_query("Q5: Data Quality Summary — Clean vs Flagged", """
+    SELECT
+        quality_flag,
+        COUNT(*)                                        AS record_count,
+        ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 1) AS pct_of_total
+    FROM hfs_validated_data
+    GROUP BY quality_flag
+""")

@@ -1,0 +1,7 @@
+strategy,fund_count,total_aum_mm,avg_monthly_ret,avg_ytd_ret,avg_net_exposure
+Credit Long/Short,2,466.2,0.95,4.85,6.75
+Global Macro,2,1457.8,1.0,6.5,-61.6
+Long/Short Equity,3,1348.1,0.9,5.0,21.23
+Merger Arbitrage,2,737.7,0.95,3.15,16.95
+Multi-Strategy,2,1233.7,0.9,4.5,-34.15
+Quant Equity,3,1963.3,1.33,5.33,15.73
