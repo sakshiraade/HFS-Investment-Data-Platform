@@ -84,7 +84,7 @@ Five business queries covering core HFS reporting needs:
 
 ## Tableau Dashboard
 
-[HFS Fund Performance & Data Quality — Monthly Report](#)
+[HFS Fund Performance & Data Quality — Monthly Report](https://public.tableau.com/views/HFSFundPerformanceDataQualityPlatform/HFSMonthlyReport?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
